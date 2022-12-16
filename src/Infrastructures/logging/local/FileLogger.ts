@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+
 import { Event, Logger } from '@Applications/log';
 import * as fs from 'fs';
 import { createSimpleFileLogger } from 'simple-node-logger';

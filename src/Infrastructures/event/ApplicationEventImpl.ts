@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import * as events from 'events';
 import { ApplicationEvent, ApplicationUseCase } from '@Applications/usecase/base';
 
