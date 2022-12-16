@@ -1,20 +1,21 @@
 import Hapi from '@hapi/hapi';
-import config from '@Commons/config';
+import { options } from '@Infrastructures/http/config';
+import { registerExternalPlugins, registerInternalPlugins } from '@Infrastructures/http/plugins';
+import { preResponseMiddleware } from '@Infrastructures/http/utils';
+import container from '@Infrastructures/container';
+import { routes } from '@Infrastructures/http/routes';
 
 export const createServer = async () => {
-  const server = new Hapi.Server({
-    port: config.app.port,
-    host: config.app.host,
-    routes: {
-      cors: true,
-    },
-  });
+  const server = Hapi.server(options);
 
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: () => 'Hello World!',
-  });
+  await registerExternalPlugins(server);
+  await registerInternalPlugins(server, { container });
+
+  // interpreting the response
+  server.ext('onPreResponse', preResponseMiddleware);
+
+  // initial route
+  server.route(routes());
 
   return server;
 };
