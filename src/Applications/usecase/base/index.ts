@@ -1,4 +1,10 @@
 /* eslint-disable no-use-before-define,no-unused-vars */
+import { UsersRepository } from '@Domains/users/repositories';
+import { PasswordHash } from '@Domains/users/securities';
+import { IdGenerator } from '@Domains/commons/utils';
+import { AvatarGenerator } from '@Domains/users/utils';
+import { Tokenize } from '@Domains/authentications/tokenize';
+
 export abstract class ApplicationUseCase<Input, Output> {
   protected applicationEvent: ApplicationEvent;
 
@@ -29,4 +35,9 @@ export interface ApplicationEvent {
 
 export type UseCaseDependencies = {
   applicationEvent?: ApplicationEvent;
+  usersRepository?: UsersRepository;
+  passwordHash?: PasswordHash;
+  idGenerator?: IdGenerator;
+  avatarGenerator?: AvatarGenerator;
+  tokenize: Tokenize
 };
