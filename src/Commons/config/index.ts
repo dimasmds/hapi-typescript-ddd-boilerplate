@@ -13,4 +13,10 @@ export default {
     host: process.env.APP_HOST,
     port: process.env.APP_PORT,
   },
+  sqlite: {
+    database: process.env.SQLITE_DATABASE,
+  },
+  tokenize: {
+    secret: process.env.TOKENIZE_SECRET,
+  },
 };
