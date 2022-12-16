@@ -21,6 +21,8 @@
   "dependencies": {
     "@hapi/hapi": "^20.2.1",
     "@hapi/inert": "^7.0.0",
+    "bcrypt": "^5.1.0",
+    "better-sqlite3": "^8.0.1",
     "dotenv": "^16.0.0",
     "instances-container": "^2.0.5",
     "simple-node-logger": "^21.8.12"
