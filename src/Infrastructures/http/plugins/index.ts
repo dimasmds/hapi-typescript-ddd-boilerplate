@@ -1,12 +1,17 @@
 import { Container } from 'instances-container';
 import { Server, ServerRegisterPluginObject } from '@hapi/hapi';
+import Inert from '@hapi/inert';
 
 type InternalPluginOptions = {
   container: Container
 }
 
 function externalPlugins(): ServerRegisterPluginObject<unknown>[] {
-  return [];
+  return [
+    {
+      plugin: Inert,
+    },
+  ];
 }
 
 function internalPlugins(options: InternalPluginOptions): ServerRegisterPluginObject<unknown>[] {
