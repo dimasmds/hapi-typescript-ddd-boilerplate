@@ -2,10 +2,10 @@ import Hapi from '@hapi/hapi';
 import { options } from '@Infrastructures/http/config';
 import { registerExternalPlugins, registerInternalPlugins } from '@Infrastructures/http/plugins';
 import { preResponseMiddleware } from '@Infrastructures/http/utils';
-import container from '@Infrastructures/container';
 import { routes } from '@Infrastructures/http/routes';
+import { Container } from 'instances-container';
 
-export const createServer = async () => {
+export const createServer = async (container: Container) => {
   const server = Hapi.server(options);
 
   await registerExternalPlugins(server);

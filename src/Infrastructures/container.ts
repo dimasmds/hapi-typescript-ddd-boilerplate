@@ -7,6 +7,8 @@ import PasswordHashBcrypt from '@Infrastructures/securities/PasswordHashBcrypt';
 import IdGeneratorNano from '@Infrastructures/utils/IdGeneratorNano';
 import UIAvatarsGenerator from '@Infrastructures/utils/UIAvatarsGenerator';
 import JwtTokenize from '@Infrastructures/tokenize/JwtTokenize';
+import UserCreationUseCase from '@Applications/usecase/users/UserCreationUseCase';
+import UserLoginUseCase from '@Applications/usecase/users/UserLoginUseCase';
 
 const useCaseParameter: ParameterOption = {
   injectType: 'destructuring',
@@ -14,6 +16,26 @@ const useCaseParameter: ParameterOption = {
     {
       name: 'applicationEvent',
       internal: 'ApplicationEvent',
+    },
+    {
+      name: 'usersRepository',
+      internal: 'UsersRepository',
+    },
+    {
+      name: 'passwordHash',
+      internal: 'PasswordHash',
+    },
+    {
+      name: 'idGenerator',
+      internal: 'IdGenerator',
+    },
+    {
+      name: 'avatarGenerator',
+      internal: 'AvatarGenerator',
+    },
+    {
+      name: 'tokenize',
+      internal: 'Tokenize',
     },
   ],
 };
@@ -65,6 +87,14 @@ container.register([
 container.register([
   {
     Class: SampleUseCase,
+    parameter: useCaseParameter,
+  },
+  {
+    Class: UserCreationUseCase,
+    parameter: useCaseParameter,
+  },
+  {
+    Class: UserLoginUseCase,
     parameter: useCaseParameter,
   },
 ]);

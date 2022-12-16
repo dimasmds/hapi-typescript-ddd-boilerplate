@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { ApplicationUseCase } from '@Applications/usecase/base';
 
 class SampleUseCase extends ApplicationUseCase<string, string> {

@@ -1,12 +1,13 @@
 import { Server } from '@hapi/hapi';
 import { createServer } from '@Infrastructures/http';
 import InvariantError from '@Commons/exceptions/InvariantError';
+import container from '@Infrastructures/container';
 
 describe('createServer', () => {
   let server: Server;
 
   beforeAll(async () => {
-    server = await createServer();
+    server = await createServer(container);
   });
 
   describe('when GET /', () => {
