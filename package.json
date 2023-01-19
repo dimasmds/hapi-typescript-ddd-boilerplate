@@ -26,7 +26,6 @@
     "simple-node-logger": "^21.8.12"
   },
   "devDependencies": {
-    "@types/hapi__hapi": "^20.0.13",
     "@types/hapi__inert": "^5.2.4",
     "@types/jest": "^29.2.6",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
