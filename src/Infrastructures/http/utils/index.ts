@@ -1,7 +1,8 @@
-import { Request, ResponseObject, ResponseToolkit } from '@hapi/hapi';
+import { Request, ResponseToolkit, ResponseObject } from '@hapi/hapi';
 import ClientError from '@Commons/exceptions/ClientError';
 import container from '@Infrastructures/container';
 import { Logger } from '@Applications/log';
+import { Boom } from '@hapi/boom';
 
 export function secureResponse(response: ResponseObject) {
   response.header('Content-Security-Policy', 'upgrade-insecure-requests');
@@ -13,7 +14,7 @@ export function secureResponse(response: ResponseObject) {
 }
 
 export async function preResponseMiddleware(request: Request, h: ResponseToolkit) {
-  const { response } = request;
+  const { response } = request as { response: ResponseObject | Boom };
   const logger = container.getInstance('Logger') as Logger;
 
   if (response instanceof Error) {
