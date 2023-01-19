@@ -19,6 +19,7 @@
   "author": "Dimas Saputra <dimas.maulanads@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@hapi/boom": "^10.0.0",
     "@hapi/hapi": "^21.2.0",
     "@hapi/inert": "^7.0.0",
     "dotenv": "^16.0.3",
